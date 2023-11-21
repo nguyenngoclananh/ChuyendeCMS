@@ -22,28 +22,38 @@ if ($post_slug) {
 
 <div class="job_listings">
 
-  <form class="jobscout_job_filters" method="GET" action="<?php echo esc_url($action_page) ?>">
+  <form class="jobscout_job_filters" style="   box-shadow: 1px 1px 1px 15px rgb(153,148,144);
+    background: rgb(153,148,144);" method="GET" action="<?php echo esc_url($action_page) ?>">
     <div class="search_jobs">
 
       <div class="search_keywords">
         <label for="search_keywords"><?php esc_html_e('Keywords', 'jobscout'); ?></label>
-
-        <input type="text" id="search_keywords" name="search_keywords" placeholder="<?php esc_attr_e('Tìm Kiếm Công Việc', 'jobscout'); ?>">
+        <span class="icon" style="position: absolute;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #4f5b66;color: rgb(234,117,30);"><i class="fa fa-search"></i></span>
+        <input type="text" id="search_keywords" name="search_keywords" style="padding-left:45px;" placeholder="<?php esc_attr_e('Tìm Kiếm Công Việc', 'jobscout'); ?>">
       </div>
 
-      <!-- <div class="search_location">
-        <label for="search_location"><?php esc_html_e('Location', 'jobscout'); ?></label>
-        <input type="text" id="search_location" name="search_location" placeholder="<?php esc_attr_e('Địa Chỉ', 'jobscout'); ?>">
-      </div> -->
-      <div class="search_location">
+
+      <div class="search_location" >
         <?php
         global $wpdb;
         $table  = $wpdb->prefix . 'postmeta';
         $sql = "SELECT DISTINCT SUBSTRING_INDEX(`meta_value`,',',-1) as location FROM `wp_postmeta` WHERE `meta_key` like '%location%' ORDER BY location";
         $data = $wpdb->get_results($wpdb->prepare($sql));
         ?>
-
-        <select id="search_location" name="search_location" value="Khu vực">
+        <span class="icon" style="position: absolute;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #4f5b66;
+  color: rgb(234,117,30);
+  font-size: 20px;
+"><i class="fa fa-map-marker" aria-hidden="true"></i>
+        </span>
+        <select id="search_location" name="search_location" value="Khu vực" style="padding-left:45px;">
           <option value="">Khu vực</option>
           <?php foreach ($data as $value) : ?>
             <option value="<?php echo $value->location; ?>"><?php echo $value->location; ?></option>
@@ -65,7 +75,8 @@ if ($post_slug) {
       <?php } ?>
 
       <div class="search_submit">
-        <input type="submit" value="<?php esc_attr_e('Search', 'jobscout'); ?>" />
+        <input type="submit" style=""value="<?php esc_attr_e('SEARCH JOB', 'jobscout'); ?>"  />
+        <!-- <span>SEARCH JOB</span> -->
       </div>
 
     </div>

@@ -2353,7 +2353,7 @@ SITE BANNER SECTION
 .banner-caption .jobscout_job_filters .search_jobs input[type="submit"] {
   padding: 0;
   width: 60px;
-  background-image: url('data:image/svg+xml; utf-8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23fff" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"></path></svg>');
+  /* background-image: url('data:image/svg+xml; utf-8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23fff" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"></path></svg>'); */
   background-repeat: no-repeat;
   background-size: 20px;
   background-position: center;
@@ -2364,7 +2364,7 @@ SITE BANNER SECTION
 
 .banner-caption .jobscout_job_filters .search_jobs input[type="submit"]:hover {
   background-color: #fff;
-  background-image: url('data:image/svg+xml; utf-8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%232ace5e" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"></path></svg>');
+  /* background-image: url('data:image/svg+xml; utf-8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%232ace5e" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"></path></svg>'); */
 }
 
 /*=========================
@@ -5606,6 +5606,16 @@ div.job_listings .load_more_jobs:focus {
   width: auto;
   flex: 1;
 }
+.search_keywords{
+  position: relative;;
+}
+/* .search_keywords .icon{
+  position: absolute;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #4f5b66;
+} */
 
 .jobscout_job_filters .search_jobs div.filter_wide,
 .jobscout_job_filters .search_jobs div.search_categories {
@@ -6564,14 +6574,7 @@ RESPONSIVE STYLESHEET
     border-left: none;
   }
 
-  .banner-caption .jobscout_job_filters .search_jobs input[type="submit"] {
-    background-image: none;
-    width: 100%;
-    text-indent: 0;
-    margin-top: 1px;
-    border-left: none;
-  }
-
+  
   .banner-caption .jobscout_job_filters .search_jobs input[type="submit"]:hover {
     background-image: none;
   }
@@ -8149,7 +8152,7 @@ color: #1F1F1F;
 .banner-caption .jobscout_job_filters .search_jobs input,
 .banner-caption .jobscout_job_filters .search_jobs select {
   border-radius: 0;
-  height: 60px;
+  height: 50px;
   border-top: none;
   border-bottom: none;
   border-right: none;
@@ -8289,6 +8292,23 @@ text-decoration: none;
 .container {
   margin: 0 auto;
   max-width: 1700px;}
+  /* .jobscout_job_filters{
+    box-shadow: 1px 1px 1px 15px rgb(153,148,144);
+    background: rgb(153,148,144);
+  } */
+  .banner-caption .jobscout_job_filters .search_jobs input[type="submit"] {
+    font-weight: bold;
+    padding: 0;
+    width: 130px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: center;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: #fff;
+    text-indent:0;
+  }
+
   @media screen and (max-width: 786px) {
     .page-template-default figure.post-thumbnail {
       margin-top: 20px;
@@ -8303,4 +8323,5 @@ text-decoration: none;
       margin-right: 20px;
     }
   }
+  
  
