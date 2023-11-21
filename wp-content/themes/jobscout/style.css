@@ -54,7 +54,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
-:root {
+ :root {
   --primary-color: #2ace5e;
   --primary-color-rgb: 42, 206, 94;
   --primary-color-dark: #36b25ded;
@@ -658,24 +658,7 @@ table tr:last-child td {
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  display: inline-block;
-  background: #2ace5e;
-  border: 1px solid #2ace5e;
-  color: #fff;
-  font-weight: 700;
 
-  font-size: 0.888em;
-  border-radius: 5px;
-  padding: 10px 18px;
-  cursor: pointer;
-  -webkit-transition: all ease 0.35s;
-  -moz-transition: all ease 0.35s;
-  transition: all ease 0.35s;
-}
 
 button:hover,
 input[type="button"]:hover,
@@ -949,8 +932,16 @@ a:hover {
 .page-content,
 .entry-content,
 .entry-summary {
-  margin: 1.5em 0 0;
+  margin: 0.5em 0 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 15px;
+  margin-top: -5%;
+  ;
 }
+
 
 .page-links {
   clear: both;
@@ -1103,10 +1094,7 @@ body.custom-background .site {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
 
-.container {
-  margin: 0 auto;
-  max-width: 1170px;
-}
+
 
 .fallback-svg {
   vertical-align: top;
@@ -1118,23 +1106,8 @@ body.custom-background .site {
   text-align: center;
 }
 
-a.btn {
-  display: inline-block;
-  background: #2ace5e;
-  border: 1px solid #2ace5e;
-  color: #fff;
-  font-weight: 700;
 
-  font-size: 0.888em;
-  border-radius: 5px;
-  padding: 10px 18px;
-}
 
-a.btn:hover,
-a.btn:focus {
-  background: none;
-  color: #2ace5e;
-}
 
 a.btn:focus {
   outline-offset: 2px;
@@ -1206,9 +1179,15 @@ figure.post-thumbnail {
   color: #2ace5e;
 }
 
-.entry-title a {
+.entry-title .text-title {
   color: #000;
   display: inline-block;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 700;
+  margin: 10px 0 0 0;
+
+
 }
 
 .entry-title a:hover {
@@ -1241,22 +1220,7 @@ form.search-form input.search-field {
   border-right: none;
 }
 
-form.search-form input.search-submit {
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  padding: 0;
-  border-radius: 0 5px 5px 0;
-  border: none;
-  color: #fff;
-  background: #2ace5e url(images/search-icon.svg);
-  background-size: 15px;
-  background-repeat: no-repeat;
-  background-position: center;
-  text-indent: 60px;
-  overflow: hidden;
-}
+
 
 form.search-form input.search-submit:hover {
   opacity: 0.75;
@@ -1350,7 +1314,7 @@ form.search-form input.search-submit:focus {
 }
 
 .site-content header.page-header .page-title {
-  margin-top: 0;
+  margin-top: 40px;
   margin-bottom: 0;
   font-size: 1.7223em;
   font-weight: 700;
@@ -1371,7 +1335,9 @@ form.search-form input.search-submit:focus {
 }
 
 .page-template-default figure.post-thumbnail {
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
 
 .page-template-default figure.post-thumbnail a.post-thumbnail {
@@ -1849,15 +1815,9 @@ COMMENTS AREA
 /*=========================
 SIDEBARS
 =========================*/
-.site-content {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
 
 .rightsidebar #primary {
-  float: left;
-  width: 75%;
-  padding-right: 40px;
+  width: 100%;
 }
 
 .leftsidebar #primary {
@@ -2171,9 +2131,7 @@ body.home:not(.banner-enabled) .site-header {
   line-height: 1.3;
 }
 
-.site-branding .site-title a {
-  color: #2ace5e;
-}
+
 
 .site-branding .site-description {
   margin: 0;
@@ -2215,13 +2173,7 @@ body.home:not(.banner-enabled) .site-header {
   color: #000;
 }
 
-.main-navigation ul li:hover>a,
-.main-navigation ul li.current-menu-item>a,
-.main-navigation ul li.current_page_item>a,
-.main-navigation ul li.current-menu-ancestor>a,
-.main-navigation ul li.current_page_ancestor>a {
-  color: #2ace5e;
-}
+
 
 .main-navigation ul li ul {
   position: absolute;
@@ -2320,21 +2272,9 @@ SITE BANNER SECTION
   margin-right: auto;
 }
 
-.banner-caption .title {
-  margin: 0;
-  font-size: 2.5em;
-  color: #fff;
-  font-weight: 800;
-  line-height: 1.4;
-}
 
-.banner-caption .description {
-  margin-top: 10px;
-  font-size: 1em;
-  color: #fff;
-  line-height: 1.5;
-  font-weight: 400;
-}
+
+
 
 .banner-caption .form-wrap {
   margin-top: 20px;
@@ -2392,18 +2332,6 @@ SITE BANNER SECTION
   display: none;
 }
 
-.banner-caption .jobscout_job_filters .search_jobs input,
-.banner-caption .jobscout_job_filters .search_jobs select {
-  border-radius: 0;
-  height: 60px;
-  border-top: none;
-  border-bottom: none;
-  border-right: none;
-  font-size: 0.8888em;
-  font-weight: 400;
-  padding: 10px 20px;
-  color: #666;
-}
 
 .banner-caption .jobscout_job_filters .search_jobs input::placeholder {
   color: #666 !important;
@@ -2549,6 +2477,8 @@ section.top-job-section .section-title {
   display: flex;
   flex: 1;
   flex-wrap: wrap;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .top-job-section .row div.job_listings article {
@@ -2895,18 +2825,20 @@ section[class*="-section"] .widget_raratheme_companion_cta_widget .right .button
 ARTICLE SECTION
 ===========================*/
 section.article-section {
-  margin: 70px 0;
+  padding: 40px 0;
   text-align: center;
+  /* background: rgb(242,242,242); */
+  
 }
-
 .article-section .article-wrap {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 30px;
   text-align: left;
-  margin-top: 50px;
   margin-bottom: 40px;
+  
 }
+
 
 .article-section .article-wrap article {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
@@ -2918,16 +2850,8 @@ section.article-section {
   width: 100%;
 }
 
-.article-section .article-wrap header.entry-header {
-  padding: 30px;
-}
 
-.article-section .article-wrap header.entry-header .entry-title {
-  margin: 10px 0 0 0;
-  line-height: 1.5;
-  font-size: 1.112em;
-  font-weight: 700;
-}
+
 
 /*=========================
 TESTIMONIAL SECTION
@@ -3562,6 +3486,12 @@ SINGLE PAGE
   position: relative;
   margin-right: 5px;
   padding-right: 10px;
+}
+
+.article-wrap .entry-header {
+  padding: 20px;
+  margin-left: -20px;
+  margin-top: -8%;
 }
 
 .single .entry-footer .tags a:last-child {
@@ -4706,17 +4636,7 @@ WIDGET CALL TO ACTION
   margin-bottom: 30px;
 }
 
-.widget_raratheme_companion_cta_widget a.btn-cta {
-  display: inline-block;
-  background: #2ace5e;
-  border: 1px solid #2ace5e;
-  color: #fff;
-  font-weight: 700;
-  margin: 5px;
-  font-size: 0.888em;
-  border-radius: 5px;
-  padding: 10px 18px;
-}
+
 
 .widget_raratheme_companion_cta_widget a.btn-cta:hover {
   background: none;
@@ -6566,11 +6486,17 @@ RESPONSIVE STYLESHEET
   .testimonial-section .widgets-wrap {
     padding: 0 15px;
   }
+  .site-content figure.post-thumbnail{
+    margin-left: 0;
+  }
 }
 
 @media screen and (max-width: 767px) {
   body.custom-background .site {
     max-width: 480px;
+  }
+  .site-content figure.post-thumbnail{
+    margin-left: 0;
   }
 
   .container,
@@ -8159,3 +8085,222 @@ RESPONSIVE STYLESHEET
 .wp-block-social-links {
   flex-wrap: wrap !important;
 }
+
+/* New */
+.font-text {
+  font-size: 15px;
+  color: rgb(238, 143, 72);
+}
+
+/*  */
+.site-content figure.post-thumbnail {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+/* .site-content {
+  background: rgb(242, 242, 242);
+  padding: 40px 0;
+} */
+
+.read {
+  margin: 0;
+}
+@media screen and (max-width: 782px) {
+  .article-wrap .entry-header{
+    padding: 20px;
+    margin-top: -20%;
+    margin-left: 0;;
+  }
+}
+/* header */
+
+a.btn {
+  display: inline-block;
+  background: #EA751E;
+  border: 1px solid #EA751E;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.888em;
+  border-radius: 5px;
+  padding: 10px 18px;
+}
+a.btn:hover,
+a.btn:focus {
+  background: none;
+  color: #1F1F1F;
+}
+
+.site-branding .site-title a {
+color: #1F1F1F;
+}
+
+
+
+.banner-caption .title {
+  margin: 0;
+  font-size: 2.5em;
+  color: #fff;
+  font-weight: 800;
+  line-height: 1.4;
+	text-align: left;
+}
+.banner-caption .jobscout_job_filters .search_jobs input,
+.banner-caption .jobscout_job_filters .search_jobs select {
+  border-radius: 0;
+  height: 60px;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  font-size: 0.8888em;
+  font-weight: 400;
+  padding: 10px 20px;
+  color: #666;
+margin-right: 20px
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  display: inline-block;
+  background: #EA751E;
+  border: 1px solid #EA751E;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.888em;
+  border-radius: 5px;
+  padding: 10px 18px;
+  cursor: pointer;
+  -webkit-transition: all ease 0.35s;
+  -moz-transition: all ease 0.35s;
+  transition: all ease 0.35s;
+}
+/*  màu chưa hover*/
+.widget_raratheme_companion_cta_widget a.btn-cta {
+  display: inline-block;
+/* 	 màu chưa hover*/
+  border: 1px solid ;
+  color: #fff;
+  font-weight: 700;
+  margin: 5px;
+  font-size: 0.888em;
+  border-radius: 5px;
+  padding: 10px 18px;
+}
+
+.widget_raratheme_companion_cta_widget a.btn-cta {
+  display: inline-block;
+  border: 1px solid ;
+  font-weight: 700;
+  margin: 5px;
+  font-size: 0.888em;
+  border-radius: 5px;
+  padding: 10px 18px;
+}
+
+form.search-form input.search-submit {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  padding: 0;
+  border-radius: 0 5px 5px 0;
+  border: none;
+  color: #fff;
+  background: #2ace5e;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-indent: 60px;
+  overflow: hidden;
+}
+
+.main-navigation ul li a::after{
+	content:"";
+	position:absolute;
+	height:3px;
+	width:100%;
+	background-color:#EA751E;
+	bottom:0;
+	left:0;
+	transform: scalex(0);
+	transition: all 0.3s;
+}
+
+.main-navigation ul li a:hover::after{
+	transform: scalex(1);
+}
+.main-navigation ul li:hover>a,
+.main-navigation ul li.current-menu-item>a,
+.main-navigation ul li.current_page_item>a,
+.main-navigation ul li.current-menu-ancestor>a,
+.main-navigation ul li.current_page_ancestor>a {
+color: #1F1F1F;
+text-decoration: none;
+}
+.banner-caption .description {
+  margin-top: 10px;
+  font-size: 1em;
+  color: #fff;
+  line-height: 1.5;
+  font-weight: 400;
+  text-align: left;
+}
+.widget_raratheme_popular_post ul li .post-thumbnail img, .widget_raratheme_recent_post ul li .post-thumbnail img {
+  vertical-align: top;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.rightsidebar #primary {
+  width: 100%;
+
+}
+
+.wp-block-column.is-vertically-aligned-top {
+  align-self: flex-start;
+  margin-left: -30%;
+}
+.wp-container-4.wp-container-4{
+   padding: 40px;
+   margin-bottom: 0;
+} 
+/* .wp-block-group__inner-container{
+  background: yellow;
+} */
+.wp-container-16.wp-container-16{
+  padding: 50px;
+    background: rgb(242,242,242);
+}
+.wp-container-6.wp-container-6{
+  margin-top: 40px;
+  background: #fff;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.content-area{
+  background: #fff;
+}
+.blog-new{
+  background: rgb(242,242,242);
+}
+.container {
+  margin: 0 auto;
+  max-width: 1700px;}
+  @media screen and (max-width: 786px) {
+    .page-template-default figure.post-thumbnail {
+      margin-top: 20px;
+      margin-left: 20px;
+      margin-bottom: 20px;
+      margin-right: 20px;
+    }
+    .site-content figure.post-thumbnail{
+      margin-top: 20px;
+      margin-left: 20px;
+      margin-bottom: 20px;
+      margin-right: 20px;
+    }
+  }
+ 

@@ -16,7 +16,6 @@
          * @hooked jobscout_entry_header - 10
          * @hooked jobscout_post_thumbnail - 15
         */
-        do_action( 'jobscout_before_page_entry_content' );
     
         /**
          * Entry Content

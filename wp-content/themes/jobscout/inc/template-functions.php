@@ -35,7 +35,7 @@ if( ! function_exists( 'jobscout_responsive_header' ) ) :
  * Responsive Header
 */
 function jobscout_responsive_header(){ 
-    $post_job_label  = get_theme_mod( 'post_job_label', __( 'Post Jobs', 'jobscout' ) );
+    $post_job_label  = get_theme_mod( 'post_job_label', __( 'jobscout', 'jobscout' ) );
     $post_job_url    = get_theme_mod( 'post_job_url', '#' );
     ?>
     <div class="responsive-nav">
@@ -68,7 +68,7 @@ function jobscout_responsive_header(){
                 
                     <?php if( $post_job_label || $post_job_url ){ ?>
                         <div class="btn-wrap">
-                            <a class="btn" href="<?php echo esc_url( $post_job_url ) ?>"><?php echo esc_html( $post_job_label ) ?></a>
+                            <a class="btn" id="btn-post" href="<?php echo esc_url( $post_job_url ) ?>"><?php echo esc_html( $post_job_label ) ?></a>
                         </div>
                     <?php } ?>
                </div>
@@ -110,7 +110,7 @@ function jobscout_header(){
                 ?>
             </div>
         </div> <!-- .header-main -->
-    </header> <!-- .site-header -->
+    </header> <!--.site-header-->
     <?php
 }
 endif;
@@ -140,49 +140,21 @@ if( ! function_exists( 'jobscout_content_start' ) ) :
  * Content Start
  *  
 */
-function jobscout_content_start(){       
+function jobscout_content_start(){ 
+    $post_job_label  = get_theme_mod( 'post_job_label', __( 'NEWEST BLOG ENTRIES', 'jobscout' ) );
+      
     echo '<div id="acc-content"><!-- .site-header -->';
     $home_sections = jobscout_get_home_sections(); 
     if( ! ( is_front_page() && ! is_home() && $home_sections ) ){ //Make necessary adjust for pg template.
-        echo is_404() ? '<div class="error-holder">' : '<div id="content" class="site-content">'; 
+        echo is_404() ? '<div class="error-holder">' : '<div id="content" class="site-content content-new">'; 
 
         if( is_archive() || is_search() || is_page_template( 'templates/portfolio.php' ) ) : ?>
             <header class="page-header">
                 <?php
-                    if( is_archive() ){ 
-                        if( is_author() ) { 
-                            $author_title = get_the_author(); ?>
-                            <div class="author-bio">
-                                <figure class="author-img"><?php echo get_avatar( get_the_author_meta( 'ID' ), 100 ); ?></figure>
-                                <div class="author-content">
-                                    <?php 
-                                        echo '<span class="sub-title">' . esc_html__( 'All Posts by', 'jobscout' ) . '</span>';
-                                        if( $author_title ) echo '<h1 class="author-title">' . esc_html( $author_title ) . '</h3>';
-                                    ?>      
-                                </div>
-                            </div>
-                        <?php }else{
-                            the_archive_title( '<h1 class="page-title">', '</h1>' );
-                            the_archive_description( '<div class="archive-description">', '</div>' );             
-                        }
-                    }
-                    
-                    if( is_search() ){ 
-                        echo '<div class="container">';
-                            echo '<h1 class="page-title">' . esc_html__( 'Search', 'jobscout' ) . '</h1>';
-                            get_search_form();
-                        echo '</div><!-- .container -->';
-                    }
-
-                    if( ! is_author() && ! is_search() ){
-                        jobscout_posts_per_page_count();
-                    }
-
                     if( is_page_template( 'templates/portfolio.php' ) ){
                         global $post;
                         echo '<div class="container">';
-                            echo '<h1 class="page-title">' . esc_html( get_the_title( $post->ID ), 'jobscout' ) . '</h1>';
-                            if( $post->post_content ) echo wpautop( wp_kses_post( $post->post_content ) );
+                            echo '<h1 class="page-title">' . esc_html($post_job_label). '</h1>';
                         echo '</div><!-- .container -->';
                     }
                 ?>
@@ -350,8 +322,8 @@ function jobscout_entry_footer(){
                         ),
                         get_the_title()
                     ),
-                    '<span class="edit-link">',
-                    '</span>'
+                    // '<span class="edit-link">',
+                    // '</span>'
                 );
             }
             if( is_single() ) echo '</div>';
@@ -503,7 +475,7 @@ function jobscout_footer_top(){
     $footer_sidebars = array( 'footer-one', 'footer-two', 'footer-three', 'footer-four' );
     $active_sidebars = array();
     $sidebar_count   = 0;
-    
+        
     foreach ( $footer_sidebars as $sidebar ) {
         if( is_active_sidebar( $sidebar ) ){
             array_push( $active_sidebars, $sidebar );

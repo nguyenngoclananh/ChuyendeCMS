@@ -1528,7 +1528,7 @@ function edit_post_link( $text = null, $before = '', $after = '', $post = 0, $cs
 		$text = __( 'Edit This' );
 	}
 
-	$link = '<a class="' . esc_attr( $css_class ) . '" href="' . esc_url( $url ) . '">' . $text . '</a>';
+	// $link = '<a class="' . esc_attr( $css_class ) . '" href="' . esc_url( $url ) . '">' . $text . '</a>';
 
 	/**
 	 * Filters the post edit link anchor tag.
@@ -1539,7 +1539,7 @@ function edit_post_link( $text = null, $before = '', $after = '', $post = 0, $cs
 	 * @param int    $post_id Post ID.
 	 * @param string $text    Anchor text.
 	 */
-	echo $before . apply_filters( 'edit_post_link', $link, $post->ID, $text ) . $after;
+	// echo $before . apply_filters( 'edit_post_link', $link, $post->ID, $text ) . $after;
 }
 
 /**
